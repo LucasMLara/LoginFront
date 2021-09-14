@@ -73,16 +73,17 @@ const Login = () => {
             type="button"
             className="btn"
           >
-            {disabled && (
+            {/* {disabled && (
               <>
                 <span />
                 <span />
                 <span />
                 <span />
               </>
-            )}Cadastre-se
+            )} */}
+            Cadastre-se
           </button>
-          <button
+          {/* <button
             onClick={ handleSubmitClick }
             disabled={ !disabled }
             type="button"
@@ -97,7 +98,7 @@ const Login = () => {
                 <span />
               </>
             )}Esqueci a senha
-          </button>
+          </button> */}
         </form>
       </div>
     </div>

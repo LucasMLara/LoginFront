@@ -1,11 +1,16 @@
+import { useLocation } from 'react-router-dom';
+
 const Home = () => {
+const { state } = useLocation();
+console.log('HOME', state);
+
   return(
     <div>
       <div className="login-box">
         <form>
           <img src="https://switchapp.com.br/wp-content/uploads/2020/09/SW-Logo-HoriWhiteEffect-2-1024x174.png" alt="switch" />
           <h1>Bem vindo</h1>
-          <h3>Nome do Usuário</h3>
+          <h3>{state.fullName}</h3>
           
           <button
             // onClick={ handleSubmitClick }

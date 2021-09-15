@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { Redirect } from 'react-router';
+import { Redirect, useHistory } from 'react-router';
 // import axios from 'axios';
 import "../Form.css";
 
@@ -10,6 +10,7 @@ const Login = () => {
   const [data, setData] = useState({});
   const [disabled, setDisabled] = useState(false);
   const [redirect, setRedirect] = useState(false);
+  const { push }  = useHistory();
 
   const handleEmail = ({ target }) => {
     setEmail(target.value);
@@ -32,10 +33,9 @@ const Login = () => {
           password,
         },
       });
-      console.log(logging.data);
       setData(logging.data)
       setRedirect(true);
-    } catch (error) {console.log(error.response);}
+    } catch (error) {alert(error.response.data.message);}
   };
 
 
@@ -48,10 +48,6 @@ const Login = () => {
   };
   useEffect(validInputs, [email, password, disabled]);
 
-  // const handleSubmitClick = () => {
-  //   setEmail("");
-  //   setPassword("");
-  // };
   return (
     <div>
       {redirect && <Redirect
@@ -103,33 +99,10 @@ const Login = () => {
             disabled={!disabled}
             type="button"
             className="btn"
+            onClick={()=> push('/register')}
           >
-            {/* {disabled && (
-              <>
-                <span />
-                <span />
-                <span />
-                <span />
-              </>
-            )} */}
             Cadastre-se
           </button>
-          {/* <button
-            onClick={ handleSubmitClick }
-            disabled={ !disabled }
-            type="button"
-            className="miss-password-btn"
-            
-          >
-            {disabled && (
-              <>
-                <span />
-                <span />
-                <span />
-                <span />
-              </>
-            )}Esqueci a senha
-          </button> */}
         </form>
       </div>
     </div>

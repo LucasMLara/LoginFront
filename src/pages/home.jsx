@@ -10,8 +10,7 @@ console.log('HOME', state);
         <form>
           <img src="https://switchapp.com.br/wp-content/uploads/2020/09/SW-Logo-HoriWhiteEffect-2-1024x174.png" alt="switch" />
           <h1>Bem vindo</h1>
-          <h3>{state.fullName}</h3>
-          
+          <h3>{!state ? "Bem vindx, Visitante! Faça seu Login ou Cadastre-se" : state.fullName}</h3>          
           <button
             // onClick={ handleSubmitClick }
             // disabled={ disabled }

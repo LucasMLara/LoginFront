@@ -4,6 +4,9 @@ import { Redirect, useHistory } from 'react-router';
 // import axios from 'axios';
 import "../Form.css";
 
+const URL = process.env.NODE_ENV === 'development'? "http://localhost:3333/" : "/"
+
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -26,7 +29,7 @@ const Login = () => {
     try {
       const logging = await axios({
         method: "post",
-        url: "http://localhost:3333/",
+        url: URL,
         headers: { "content-type": "application/json" },
         data: {
           email,

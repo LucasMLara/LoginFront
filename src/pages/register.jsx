@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Redirect } from 'react-router';
 
+const URL = process.env.NODE_ENV === 'development'? "http://localhost:3333/register" : "/register"
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -14,7 +15,7 @@ const Register = () => {
     try {
       const registering = await axios({
         method: "post",
-        url: "http://localhost:3333/register",
+        url: URL,
         headers: { "content-type": "application/json" },
         data: {
           fullName,

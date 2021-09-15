@@ -1,8 +1,10 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
+
+
 
 const Home = () => {
 const { state } = useLocation();
-console.log('HOME', state);
+const { push }  = useHistory();
 
   return(
     <div>
@@ -12,7 +14,7 @@ console.log('HOME', state);
           <h1>Bem vindo</h1>
           <h3>{!state ? "Bem vindx, Visitante! Faça seu Login ou Cadastre-se" : state.fullName}</h3>          
           <button
-            // onClick={ handleSubmitClick }
+            onClick={()=> push('/')}
             // disabled={ disabled }
             type="button"
             className="btn"
